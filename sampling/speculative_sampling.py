@@ -49,7 +49,7 @@ def speculative_sampling(prefix : torch.Tensor, approx_model : torch.nn.Module, 
         # q = M_q[prefix + x_0, x_1, .., x_(gamma-2)]
         prefix_len = prefix.shape[1]
 
-        x = approx_model_cache.generate(prefix, gamma)
+        x = approx_model_cache.generate(prefix, gamma, small=True)
         _ = target_model_cache.generate(x, 1)
         
         n = prefix_len + gamma - 1
@@ -100,7 +100,9 @@ def speculative_sampling(prefix : torch.Tensor, approx_model : torch.nn.Module, 
 
     if verbose:
         print(f"generated tokens numbers {prefix.shape[-1] - seq_len}, accepted_count {accepted_count}, target_sample_count {target_sample_count}, resample_count {resample_count}")
-    return prefix
+
+    acc = (prefix.shape[-1] - seq_len) / ((target_sample_count + resample_count) * gamma)
+    return prefix, acc
 
 
 @torch.no_grad()

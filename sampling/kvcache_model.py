@@ -1,7 +1,7 @@
 import torch
 from typing import Optional
 
-from sampling.utils import norm_logits, sample
+from sampling.utils import norm_logits, sample, norm_logits_simple
 from transformers.models.bloom.modeling_bloom import BloomForCausalLM
 
 def _debug_show_kvcache(past_key_values):
@@ -54,7 +54,8 @@ class KVCacheModel():
                 not_cached_q = torch.unsqueeze(not_cached_q, 0)
                 
             for i in range(not_cached_q.shape[-2]):   
-                not_cached_q[:, i, :] = norm_logits(not_cached_q[:, i, :], self._temperature, self._top_k, self._top_p)    
+                # not_cached_q[:, i, :] = norm_logits(not_cached_q[:, i, :], self._temperature, self._top_k, self._top_p)   
+                not_cached_q[:, i, :] = norm_logits_simple(not_cached_q[:, i, :], self._temperature) 
                 
             self._prob_history = torch.cat([self._prob_history, not_cached_q], dim=1)
             
@@ -65,7 +66,7 @@ class KVCacheModel():
 
 
     def _generate_with_kvcache(self, prefix : torch.Tensor, 
-                                    gamma : int, 
+                                    gamma : int, small=False,
                                     use_debug = False) -> torch.Tensor:
         """ forward the model gamma times
 
@@ -80,13 +81,21 @@ class KVCacheModel():
 
         for _ in range(gamma):
             q = self._forward_with_kvcache(x, use_debug)
+            if small:
+                # only sample from topk.
+                topk_values, _ = torch.topk(q, 16, dim=1)
+                mask = q >= topk_values[:, [-1]]
+                filtered = q * mask.float()
+                q = filtered / filtered.sum(dim=1, keepdim=True)
+
             next_tok = sample(q)
             x = torch.cat((x, next_tok), dim=1)
         return x
 
     @torch.no_grad()
-    def generate(self, input : torch.Tensor, gamma : int) -> torch.Tensor:
-        output = self._generate_with_kvcache(input, gamma)
+    def generate(self, input : torch.Tensor, gamma : int, small=False) -> torch.Tensor:
+        # small used to change the draft model
+        output = self._generate_with_kvcache(input, gamma, small)
         return output
     
     @torch.no_grad()
