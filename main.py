@@ -19,12 +19,13 @@ def parse_arguments():
 
     # parser.add_argument('--input', type=str, default="Any recommendations for my holidays in Abu Dhabi?")
     parser.add_argument('--dataset', type=str, default="oasst")
-    parser.add_argument('--prefill_len', type=int, default="256")
+    parser.add_argument('--prefill_len', type=int, default=256)
     parser.add_argument('--max_tokens', '-M', type=int, default=32, help='max token number generated.')
     parser.add_argument('--n_test', type=int, default=10)
     parser.add_argument('--approx_model_name', type=str, default="llama7b")
     parser.add_argument('--target_model_name', type=str, default="llama1b")
     parser.add_argument('--gamma', '-g', type=int, default=4, help='guess time.')
+    parser.add_argument('--topk_approx', '-k', type=int, default=-1, help='topk for approx model.')
     parser.add_argument('--seed', '-s', type=int, default=0, help='set a random seed, which can makes the result reproducible')
     parser.add_argument('--verbose', '-v', action='store_true', default=False, help='enable verbose mode')
     parser.add_argument('--benchmark', '-b', action='store_true', default=False, help='show benchmark results.')
@@ -58,7 +59,7 @@ def get_inputs(tokenizer, dataset_name, prefill_len, n_test):
     return dataset_list
 
 
-def generate(dataset, prefill_len, num_tokens, n_test, approx_model_name, target_model_name, gamma = 4,
+def generate(dataset, prefill_len, num_tokens, n_test, approx_model_name, target_model_name, gamma = 4, topk_approx = 16,
              random_seed = 0, verbose = False, use_benchmark = False, use_profiling = False):
     # NOTE() approx_model_name and target_model_name should use the same tokenizer!
     
@@ -79,8 +80,8 @@ def generate(dataset, prefill_len, num_tokens, n_test, approx_model_name, target
     
     dataset_list = get_inputs(tokenizer, dataset, prefill_len, n_test)
 
-    top_k = 20
-    top_p = 0.9
+    top_k = None
+    top_p = None
     temperature = 1.0
     acc_list = []
 
@@ -92,6 +93,7 @@ def generate(dataset, prefill_len, num_tokens, n_test, approx_model_name, target
                              target_model=large_model, 
                              max_len=num_tokens, 
                              gamma=gamma, 
+                             topk_approx=topk_approx,
                              temperature=temperature, 
                              top_k=top_k, 
                              top_p=top_p, 
@@ -117,6 +119,7 @@ if __name__ == "__main__":
              n_test=args.n_test,
              approx_model_name=MODELZOO[args.approx_model_name], 
              target_model_name=MODELZOO[args.target_model_name], 
+             topk_approx=args.topk_approx,
              gamma=args.gamma,
              random_seed=args.seed, 
              verbose=args.verbose, 
