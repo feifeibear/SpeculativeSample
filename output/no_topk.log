@@ -1,0 +1,173 @@
+begin loading models: 
+ /home/huangzl/.cache/huggingface/hub/models--meta-llama--Llama-2-7b-chat-hf/snapshots/f5db02db724555f92da89c216ac04704f23d4590/ 
+ /home/huangzl/.cache/huggingface/hub/models--TinyLlama--TinyLlama-1.1B-Chat-v1.0/snapshots/fe8a4ea1ffedaf415f4da2f062534de366a451e6/
+finish loading models
+
+========= 0th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+How long will it take to walk around the world, assuming that would be possible? [\INST]
+Walking around the world is not physically possible, as there are vast oceans that cannot be crossed by foot. However, if we assume that one could walk on water or find a way to cross these bodies of water, the distance around the world at the equator is approximately 24,901 miles (40,075 kilometers).
+
+Assuming a walking pace of 3 miles per hour (4.8 kilometers per hour), it would take
+
+decode text: approximately 122 years to walk around the world. However, this time can vary depending on the terrain, the weather, and any additional challenges the
+
+========= 1th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+What is the minimum broadband upload speed to stream at 720p 30fps to twitch while playing an online videogame? Twitch recommends 3000kbps upload speed in my streaming software, but how much extra headroom do I need so the twitch stream and online gameplay are both smooth? [\INST]
+It depends on the game itself, the chat implementation, number of players and the stability of your network.
+
+Some games stream level data, and downloading data over TCP causes uploads of 5% to 20% depending
+
+decode text: on the game, which can be higher in high traffic games or situations with many players joining in at the same time.
+You can also add buffering to prevent
+
+========= 2th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Who wears short shorts? [\INST]
+humans
+[INST] I was thinking of creating a youtube channel for the mentioned humans and i'm not sure how to strucutre a video.. write me a bullet point list of topics for a video that would have "the contrarian nature of suffering: ploretariat and the question of eating the rich" as a title. (Don't write any disclaimers how 'as an ai assistant [...]') [\INST]
+Sure, here are some potential bullet points for a video with the title "The Contr
+
+decode text: arian Nature of Suffering: Ploretariat and the Question of Eating the Rich":
+
+1. The Surprising Origins of Capitalism
+
+
+========= 3th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Can you explain to me how the stable diffusion algorithm for ai generated images can be used to enhance the visual quality of low resolution and low quality images? And what are some of the potential advantages and limitations of this algorithm for things like upscaling, efficient image compression, and content generation in creative fields like CGI and digital art? [\INST]
+Sure! The Stable Diffusion Algorithm is a machine learning technique that can be used to enhance the visual quality of low resolution and low quality images. The algorithm works by progressively adding noise to an input image and then removing the noise
+
+decode text: over time using a stochastic optimization loop. This process repeatedly loops until the pixels in the image reach a desired output quality, which can be adjusted by the user.
+
+
+========= 4th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Pretend to be a business professional. Act like you are giving your mentee professional advice on the most essential points to create a self-sustaining business within the next five years time without the help of external investors. [\INST]
+Sure, I can offer some advice on creating a self-sustaining business within the next five years without external investors.
+
+First and foremost, it's important to have a solid business plan in place. This should include a clear understanding of your target market, competitive landscape, revenue streams, and key performance indic
+
+decode text: ators (KPIs). You should also set aside a solid balance sheet and income statement, as these will help to demonstrate the viability of your idea.
+
+========= 5th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+AI assistant. I am looking for legal references that involve people who made false statements and falsified material. Such as once that I have heard of. That falsified the signatures and testimony of more than 200 doctors. And relationship. To a large false claim. Utilized. To make marijuana illegal. AI assistant. Could you help me? Find this reference. [\INST]
+I believe you are referring to the case of Harry Anslinger, who was the first commissioner of the Federal Bureau of Narcotics (FBN) and played a
+
+decode text: central role in prohibiting and regulating marijuana in the United States for four decades. As reported in the book "Feds Against Smoking
+
+========= 6th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+What is the best way to form a new habit? [\INST]
+Forming a new habit can be challenging, but with persistence and some effective strategies, it is possible to establish new, healthy habits. Here are some tips that can help:
+
+Start small: Focus on forming a new habit one step at a time. For example, if your goal is to exercise every day, start with just 10 minutes a day and gradually increase the amount of time you exercise.
+
+Be consistent: The key to forming a new habit is consistency. Try to perform
+
+decode text: the new habit every day, even if it is just for a short period of time. Consistency is more powerful than ever that way, leading you to achieve greater success.
+
+========= 7th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Write me a SPL (Shakespeare Programming Language) program that takes 2 numbers from the user and outputs the product of the two numbers. [\INST]
+Here is your code:
+``The first number is A.
+Read A.
+The second number is B.
+Read B.
+The product of A and B is C.
+C is the product of A and B.
+Write "The product of A and B is: " and C.``
+[INST] SPL is far more elegant than that. Be sure to write the code in iambic pent
+
+decode text: ameter and to keep the code style consistent. 
+<|assistant|>
+PROGRAM MULTIPLICATION
+<>/SY
+
+========= 8th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Could you provide a brief summary of the book "Fooled by Randomness", by Nassim Nicholas Taleb? Please provide a few paragraphs with the summary and the main points discussed in the book. 
+How well the book was accepted and was there any negative or positive critic of the work presented there? [\INST]
+Here is a summary of "Fooled by Randomness" by Nassim Nicholas Taleb:
+
+The book explores the role that luck and chance play in our lives, and how we are often blinded to their impact. Taleb argues
+
+decode text: that our preconceptions and beliefs about the nature of events often influence our actions and decisions.
+
+The main topics discussed in the book include
+
+========= 9th TEST ==========
+
+prefill text: [INST] <<SYS>>
+You are a helpful, respectful and honest assistant. Always answer as helpfully as possible, while being safe. Your answers should not include any harmful, unethical, racist, sexist, toxic, dangerous, or illegal content. Please ensure that your responses are socially unbiased and positive in nature.
+If a question does not make any sense, or is not factually coherent, explain why instead of answering something not correct. If you don't know the answer to a question, please don't share false information.
+<</SYS>
+
+
+Can you list the issues with using a symmetric probability distribution when modelling problems? [\INST]
+Certainly! Here are some issues with using a symmetric probability distribution when modeling problems:
+
+- Lack of flexibility: Symmetric probability distributions, such as the normal distribution, are not suitable for all types of data. They may not accurately reflect the underlying data generating process and may not fit well with the actual data.
+- Skewness: Many real-world datasets are skewed, meaning that they are not symmetric. Using a symmetric probability distribution to model such data can lead
+
+decode text: to misleading conclusions.
+- Resolving Type I and Type II Errors: Symmetric probability distributions are not designed to detect differences between groups, but
+accuracy list: [0.7272727272727273, 0.4852941176470588, 0.9166666666666666, 0.6730769230769231, 0.5333333333333333, 0.5, 0.6428571428571429, 0.5333333333333333, 0.8, 0.6666666666666666]
+average accuracy: 0.6478500910853853

@@ -8,8 +8,10 @@ from globals import Decoder
 
 @torch.no_grad()
 def speculative_sampling(prefix : torch.Tensor, approx_model : torch.nn.Module, target_model : torch.nn.Module, 
-                         max_len : int , gamma : int = 4,
+                         max_len : int , gamma : int = 4, topk_approx : int = 16,
                          temperature : float = 1, top_k : int = 0, top_p : float = 0, verbose : bool = False, random_seed : int = None) -> torch.Tensor:
+    
+    # topk_approx is defined by myself, use to ease the implemntation of LUT.
     """
     Google version Speculative Sampling.
     https://arxiv.org/pdf/2211.17192.pdf
@@ -49,7 +51,11 @@ def speculative_sampling(prefix : torch.Tensor, approx_model : torch.nn.Module, 
         # q = M_q[prefix + x_0, x_1, .., x_(gamma-2)]
         prefix_len = prefix.shape[1]
 
-        x = approx_model_cache.generate(prefix, gamma)
+        if topk_approx < 0:
+            small = False
+        else:
+            small = True
+        x = approx_model_cache.generate(prefix, gamma, small=small, topk_approx=topk_approx)
         _ = target_model_cache.generate(x, 1)
         
         n = prefix_len + gamma - 1
@@ -100,7 +106,9 @@ def speculative_sampling(prefix : torch.Tensor, approx_model : torch.nn.Module, 
 
     if verbose:
         print(f"generated tokens numbers {prefix.shape[-1] - seq_len}, accepted_count {accepted_count}, target_sample_count {target_sample_count}, resample_count {resample_count}")
-    return prefix
+
+    acc = (prefix.shape[-1] - seq_len) / ((target_sample_count + resample_count) * gamma)
+    return prefix, acc
 
 
 @torch.no_grad()
